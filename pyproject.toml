@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "get-psi-data-from-api"
+version = "0.1.0"
+description = ""
+authors = ["ksi1212 <ksiper9012@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.31.0"
+python-dotenv = "^1.0.0"
+ruff = "^0.1.9"
+pathlib = "^1.0.1"
+pytest = "^7.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py312"
+exclude = [
+  ".venv"
+]
+select = [
+  "ALL"
+]
+pydocstyle.convention = "google"

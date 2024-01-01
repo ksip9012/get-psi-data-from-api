@@ -1,0 +1,40 @@
+{
+  "editor.renderWhitespace": "all",
+  "window.zoomLevel": 2,
+  "workbench.colorTheme": "Monokai Dimmed",
+  "editor.fontFamily": "HackGen",
+  "editor.tabSize": 2,
+  "terminal.integrated.fontFamily": "HackGen Console NF",
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    },
+    "editor.wordBasedSuggestions": "off",
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      {"column": 72},
+      {"column": 79}
+    ]
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      {"column": 72},
+      {"column": 79}
+    ]
+  }
+}
