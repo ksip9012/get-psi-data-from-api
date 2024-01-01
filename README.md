@@ -3,6 +3,7 @@
 ## Todo
 
 - [ ] 複数 url に対して連続して計測できるような機能追加
+  - [ ] この場合 PSI の api key を利用する機能追加
 - [ ] 結果を csv ファイルなどに出力する機能を追加
 - [ ] GCP 上で利用する場合には BigQuery に出力する機能を追加
 
@@ -11,27 +12,33 @@
 - GCP のプロジェクトを作って API キーを作らないと高頻度アクセスができない
 
 ```フォルダ構成
-myproject/
+get_psi_data_from_api/
 │
-├── myproject/  # プロジェクトの主要なコードが含まれるディレクトリ
+├── get_psi_data_from_api/  # プロジェクトのコードが含まれるフォルダ
+│   ├── modules
+│   │    ├── __init__.py
+│   │    ├── folder_utils.py
+│   │    ├── for_getenvs.py
+│   │    └── setup_logging.py
 │   ├── __init__.py
-│   ├── module1.py
-│   ├── module2.py
-│   └── ...
+│   └── main.py
 │
-├── docs/  # ドキュメンテーション用のディレクトリ
+├── docs/  # ドキュメンテーション用のフォルダ
 │   ├── conf.py
 │   ├── index.rst
 │   └── ...
 │
-├── tests/  # テスト用のディレクトリ
-│   ├── test_module1.py
-│   └── ...
+├── logs/  # ログファイルの出力先
 │
-├── README.md  # プロジェクトの概要や使用方法に関するドキュメント
-├── requirements.txt  # プロジェクトに必要な外部ライブラリや依存関係のリスト
-├── setup.py  # プロジェクトをパッケージ化するためのセットアップファイル
-└── LICENSE  # プロジェクトのライセンスファイル
+├── tests/  # テスト用のフォルダ
+│   ├── __init__.py
+│   └── test_folder_utils.py
+│
+├── README.md  # このドキュメント
+├── .gitignore  # git が無視するファイルやディレクトリを指定
+├── .tool-versions  # rtx の管理ファイル
+├── poetry.lock  # Poetry のパッケージ・バージョン管理
+└── pyproject.toml  # Poetry の設定ファイル
 ```
 
 ## APIからの返答に含まれるデータ
