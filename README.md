@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] 複数 url に対して連続して計測できるような機能追加
+- [x] 複数 url に対して連続して計測できるような機能追加
   - [ ] この場合 PSI の api key を利用する機能追加
 - [ ] 結果を csv ファイルなどに出力する機能を追加
 - [ ] GCP 上で利用する場合には BigQuery に出力する機能を追加
@@ -14,6 +14,22 @@
 ```フォルダ構成
 get_psi_data_from_api/
 │
+├── .venv/  # poetry で作った仮想環境
+│
+├── .vscode/  # vscode の設定ファイルを入れておく
+│   └── settings.json # vscode の設定ファイル
+│
+├── data/  # 計測結果の csv ファイルを格納する
+│
+├── docs/  # ドキュメンテーション用のフォルダ
+│   ├── conf.py
+│   ├── index.rst
+│   └── ...
+│
+├── env/  # 環境変数等に関するファイルを格納する
+│   ├── .env # 環境変数を入れたファイル
+│   └── measurement_urls.csv # 計測する url を入れたファイル
+│
 ├── get_psi_data_from_api/  # プロジェクトのコードが含まれるフォルダ
 │   ├── modules
 │   │    ├── __init__.py
@@ -22,11 +38,6 @@ get_psi_data_from_api/
 │   │    └── setup_logging.py
 │   ├── __init__.py
 │   └── main.py
-│
-├── docs/  # ドキュメンテーション用のフォルダ
-│   ├── conf.py
-│   ├── index.rst
-│   └── ...
 │
 ├── logs/  # ログファイルの出力先
 │

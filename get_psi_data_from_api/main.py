@@ -2,7 +2,7 @@ import logging
 from time import time
 
 import requests
-from modules.for_getenvs import load_environment_variables
+from modules.for_getenvs import load_environment_variables, load_measurement_urls
 from modules.setup_logging import setup_logging
 
 
@@ -91,9 +91,11 @@ def get_metric_value(json_data, category: str, metric: str):
 
 def main():
     setup_logging()
-    api_url, measurement_url = load_environment_variables()
-    response = make_api_request(api_url, measurement_url)
-    edit_response(response)
+    api_url = load_environment_variables()
+    url_lists = load_measurement_urls()
+    for measuremet_url in url_lists:
+        response = make_api_request(api_url, measuremet_url)
+        edit_response(response)
 
 
 if __name__ == "__main__":
