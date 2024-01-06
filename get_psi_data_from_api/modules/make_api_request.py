@@ -51,7 +51,7 @@ def make_api_request(
             計測対象の URL
 
     Returns:
-        object: API から取得した内容
+        Response | None: API から取得した内容
     """
     params = {
         "url": measurement_url,

@@ -13,8 +13,6 @@ def setup_logging(
     Args:
         log_folder (str, optional):
             ログファイルの出力先フォルダ Defaults to "logs".
-        log_file (str, optional):
-            ログファイルの名前. Defaults to "api_requests.log".
     """
     log_path = create_folder(log_folder)
     today: date = get_todays_date()

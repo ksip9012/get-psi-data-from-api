@@ -7,14 +7,11 @@ def set_folder_paths(path:str) -> Path | None:
     """フォルダパスを作成する.
 
     Args:
-        path (Path | str):
+        path (str):
             Path オブジェクト または パスの文字列
 
-    Raises:
-        ValueError: パスが不正な場合
-
     Returns:
-        Path: 作成したフルパス
+        Path | None: 作成したフルパス
     """
     try:
         cwd = Path.cwd()
@@ -33,7 +30,7 @@ def create_folder(folder_name: str) -> Path | None:
             作るフォルダの名前
 
     Returns:
-        Path: 作ったフォルダのパス
+        Path | None: 作ったフォルダのパス
     """
     try:
         folder_path: Path = Path(folder_name)

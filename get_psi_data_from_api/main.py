@@ -1,13 +1,13 @@
-from pathlib import Path
 
 import pandas as pd
 from modules.edit_response import edit_response
+from modules.folder_utils import set_folder_paths
 from modules.for_getenvs import (
     load_environment_variables,
     load_measurement_urls,
 )
 from modules.make_api_request import make_api_request
-from modules.setup_logging import setup_logging
+from modules.setup_logging import get_todays_date, setup_logging
 
 
 def main():
@@ -25,9 +25,9 @@ def main():
             df_single_page = edit_response(response, measuremet_url)
             df_result = pd.concat([df_result, df_single_page])
     df_result.columns = columns
-    cd_base = Path.cwd()
-    data_folder_path = cd_base.joinpath("data/")
-    df_result.to_csv(f"{data_folder_path}/result.csv")
+    data_folder_path = set_folder_paths("data/")
+    measuremet_date = get_todays_date()
+    df_result.to_csv(f"{data_folder_path}/{measuremet_date}_result.csv", index=False)
     print(df_result.reset_index(drop=True))
 
 
