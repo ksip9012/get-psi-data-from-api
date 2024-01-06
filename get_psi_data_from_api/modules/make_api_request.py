@@ -5,10 +5,7 @@ from time import time
 from requests import Response, exceptions, get
 
 
-def log_request_times(
-        response: Response,
-        start_time: float,
-        ) -> None:
+def log_request_times(response: Response, start_time: float) -> None:
     """API 接続にかかる時間を計測する.
 
     Args:
@@ -26,9 +23,7 @@ def log_request_times(
     logging.info("Total Time: %s", elapsed_time)
 
 
-def handle_request_exceptions(
-        e: exceptions.RequestException,
-        ) -> None:
+def handle_request_exceptions(e: exceptions.RequestException) -> None:
     """Except の設定.
 
     Args:
@@ -40,6 +35,8 @@ def handle_request_exceptions(
 
 def make_api_request(
         api_url: str,
+        api_key: str,
+        strategy: str,
         measurement_url: str,
         ) -> Response | None:
     """PSI の API からデータ取得する.
@@ -56,7 +53,9 @@ def make_api_request(
     params = {
         "url": measurement_url,
         "locale": "ja",
-        "strategy": "mobile",
+        "strategy": strategy,
+        "key": api_key,
+        "category": ["performance", "accessibility", "best-practices", "seo"],
     }
     try:
         start_time = time()

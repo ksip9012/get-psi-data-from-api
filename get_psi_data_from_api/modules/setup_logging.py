@@ -5,9 +5,7 @@ from logging import DEBUG, basicConfig, exception
 from .folder_utils import create_folder
 
 
-def setup_logging(
-    log_folder: str = "logs",
-) -> None:
+def setup_logging(log_folder: str = "logs") -> None:
     """Logger の初期設定.
 
     Args:

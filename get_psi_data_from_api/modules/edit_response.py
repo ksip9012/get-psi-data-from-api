@@ -1,12 +1,9 @@
 """API から取得したデータを整形する."""
-import json
 import logging
-from pathlib import Path
 
 import pandas as pd
 from requests import Response
 
-from .folder_utils import set_folder_paths
 from .setup_logging import get_todays_date
 
 
@@ -36,9 +33,14 @@ def extract_metrics(
 
 def create_value_list(
         date: str,
+        locale: str,
+        strategy: str,
         url: str,
         category: str,
         performance: float,
+        accessibility: float,
+        best_practices: float,
+        seo: float,
         metrics: dict,
         ) -> list:
     """結果を list にまとめる.
@@ -46,19 +48,32 @@ def create_value_list(
     Args:
         date (str):
             計測した日付
+        locale (str):
+            計測する国範囲 (日本に固定中)
+        strategy (str):
+            mobile / desktop
         url (str):
             計測した url
         category (str):
             thisurl / origin どちらか
         performance (float):
             パフォーマンスの結果
+        accessibility (float):
+            アクセシビリティの結果
+        best_practices (float):
+            ベストプラクティスの結果
+        seo (float):
+            SEO の結果
         metrics (dict):
             PSI の各数値のまとまったもの
 
     Returns:
         list: 結果をまとめたlist
     """
-    values_list = [date, url, category, performance]
+    values_list = [
+        date, locale, strategy, url, category,
+        int(performance), int(accessibility), int(best_practices), int(seo),
+    ]
     values_list.extend(
         [value if value is not None else "" for value in metrics.values()],
     )
@@ -67,6 +82,7 @@ def create_value_list(
 
 def edit_response(
         response: Response,
+        strategy: str,
         measurement_url: str,
         ) -> pd.DataFrame:
     """API から取得した結果から必要な項目を取り出す.
@@ -74,6 +90,8 @@ def edit_response(
     Args:
         response (Response):
             API からの取得内容
+        strategy (str):
+            mobile / desktop
         measurement_url (str):
             計測した url
 
@@ -82,8 +100,6 @@ def edit_response(
     """
     today: str = get_todays_date().strftime("%Y-%m-%d")
     res_json = response.json()
-    with Path.open(Path(f"{set_folder_paths('data/')}/full.json"), "w") as f:
-        json.dump(res_json, f)
     metrics_list = [
         "CUMULATIVE_LAYOUT_SHIFT_SCORE",
         "EXPERIMENTAL_TIME_TO_FIRST_BYTE",
@@ -99,14 +115,19 @@ def edit_response(
         res_json, "originLoadingExperience", metrics_list,
     )
 
-    lhr_path = res_json["lighthouseResult"]
-    performance = lhr_path["categories"]["performance"]["score"]
+    cate_path = res_json["lighthouseResult"]["categories"]
+    performance = cate_path["performance"]["score"] * 100
+    accessibility = cate_path["accessibility"]["score"] * 100
+    best_practices = cate_path["best-practices"]["score"] * 100
+    seo = cate_path["seo"]["score"] * 100
 
     thisurl_values_list = create_value_list(
-        today, measurement_url, "this url", performance, thisurl_metrics,
+        today, "ja", strategy, measurement_url, "this url",
+        performance, accessibility, best_practices, seo, thisurl_metrics,
     )
     origin_values_list = create_value_list(
-        today, measurement_url, "origin", performance, origin_metrics,
+        today, "ja", strategy, measurement_url, "origin",
+        performance, accessibility, best_practices, seo, origin_metrics,
     )
 
     return pd.DataFrame([thisurl_values_list, origin_values_list])

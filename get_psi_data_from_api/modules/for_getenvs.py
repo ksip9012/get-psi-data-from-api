@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from .folder_utils import set_folder_paths
 
 
-def load_environment_variables() -> str:
+def load_environment_variables() -> tuple:
     """設定変数をenvファイルから取得する.
 
     Returns:
@@ -16,7 +16,9 @@ def load_environment_variables() -> str:
     """
     envfile_path = set_folder_paths(path="env/.env")
     load_dotenv(envfile_path)
-    return getenv("API_URL", default="")
+    api_url = getenv("API_URL", default="")
+    api_key = getenv("API_KEY", default="")
+    return api_url, api_key
 
 
 
