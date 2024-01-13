@@ -137,7 +137,7 @@ def get_metric_value(
         json_data: dict,
         category: str,
         metric: str,
-        ) -> str | None:
+        ) -> str:
     """結果のjsonから項目を抜き出す.
 
     Args:
