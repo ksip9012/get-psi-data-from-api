@@ -21,6 +21,7 @@
 - [ ] GCP 上で利用する場合には BigQuery に出力する機能を追加
     - [ ] cloud functions は 6分以内しか動かないのでそれに収まるように
         - [ ] 1つのurlあたり30秒前後かかるので10個前後に
+- [ ] create_value_list 関数に変数が多すぎるのでそこを改善
 
 ## Requirements
 
