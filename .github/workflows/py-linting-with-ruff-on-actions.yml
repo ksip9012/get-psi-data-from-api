@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Cache dependencies
       uses: actions/cache@v3
@@ -37,5 +37,5 @@ jobs:
     - uses: chartboost/ruff-action@v1
     - name: Run syntax check
       run: |
-        poetry run ruff --output-format=github .
+        ruff --output-format=github .
       continue-on-error: true
