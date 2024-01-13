@@ -44,6 +44,10 @@ def make_api_request(
     Args:
         api_url (str):
             PSI の API の URL
+        api_key (str):
+            PSI の API の KEY
+        strategy (str):
+            mobile / desktop
         measurement_url (str):
             計測対象の URL
 
