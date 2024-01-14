@@ -1,5 +1,7 @@
 # プロジェクト内容
 
+[![Python linting with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml)
+
 ## 概要
 
 - PageSpeed Insights API と Python を利用して計測した結果を取得する
