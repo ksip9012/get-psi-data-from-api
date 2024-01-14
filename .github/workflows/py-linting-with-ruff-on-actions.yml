@@ -39,3 +39,8 @@ jobs:
       run: |
         ruff --output-format=github .
       continue-on-error: true
+  
+    - name: Add problem matcher
+      run: |
+        echo "::add-matcher::.github/ruff_error.json"
+        echo "::add-matcher::.github/ruff_warning.json"
