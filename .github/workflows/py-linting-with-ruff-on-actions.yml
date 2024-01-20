@@ -1,9 +1,6 @@
 name: Python linting with ruff
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   python-linting:
@@ -13,16 +10,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cache/poetry
-          ~/.cache/pip
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-poetry
-    
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -34,13 +21,18 @@ jobs:
         pip install poetry
         poetry install
 
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/poetry
+          ~/.cache/pip
+        key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-poetry
+
     - uses: chartboost/ruff-action@v1
     - name: Run syntax check
       run: |
         ruff --output-format=github .
       continue-on-error: true
-  
-    - name: Add problem matcher
-      run: |
-        echo "::add-matcher::.github/ruff_error.json"
-        echo "::add-matcher::.github/ruff_warning.json"

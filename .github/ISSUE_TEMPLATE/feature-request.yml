@@ -1,0 +1,12 @@
+name: Issue Template
+description: PageSpeed Insights の API を利用して計測するコードのレポジトリです
+title: "[Todo]: "
+body:
+  - type: textarea
+    attributes:
+      label: やること色々
+      description: |
+        - **AsIs**: 今の状況
+        - **ToBe**: 理想の状況
+        - **Action**: 具体的にやること
+        - **Challenge**: 手をつけられたらやること

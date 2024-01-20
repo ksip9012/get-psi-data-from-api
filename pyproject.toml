@@ -23,12 +23,8 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 target-version = "py312"
-exclude = [
-  ".venv"
-]
-select = [
-  "ALL"
-]
+exclude = [".venv"]
+select = ["ALL"]
 line-length = 79
 indent-width = 4
 pydocstyle.convention = "google"
