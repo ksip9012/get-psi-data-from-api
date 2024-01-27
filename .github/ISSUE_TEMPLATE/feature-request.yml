@@ -11,7 +11,7 @@ body:
         - **Action**: 具体的にやること
         - **Challenge**: 手をつけられたらやること
       value: |
-        - "## AsIs"
-        - "## ToBe"
-        - "## Action"
-        - "## Challenge"
+        ## AsIs
+        ## ToBe
+        ## Action
+        ## Challenge
