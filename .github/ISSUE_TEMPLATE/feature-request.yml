@@ -10,3 +10,8 @@ body:
         - **ToBe**: 理想の状況
         - **Action**: 具体的にやること
         - **Challenge**: 手をつけられたらやること
+      value: |
+        - "## AsIs"
+        - "## ToBe"
+        - "## Action"
+        - "## Challenge"
