@@ -21,7 +21,6 @@ def load_environment_variables() -> tuple:
     return api_url, api_key
 
 
-
 def load_measurement_urls() -> list:
     """計測する url のリストを csv ファイルから取得する.
 
