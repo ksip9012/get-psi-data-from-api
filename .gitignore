@@ -12,3 +12,5 @@ logs/
 
 # reult data
 data/
+
+!.vscode/

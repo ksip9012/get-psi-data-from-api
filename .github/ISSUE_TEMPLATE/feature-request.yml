@@ -1,5 +1,5 @@
 name: Issue Template
-description: PageSpeed Insights の API を利用して計測するコードのレポジトリです
+description: Issue を立てる時に使います
 title: "[Todo]: "
 body:
   - type: textarea
@@ -15,3 +15,5 @@ body:
         ## ToBe
         ## Action
         ## Challenge
+    validations:
+      required: true

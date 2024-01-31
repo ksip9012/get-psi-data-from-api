@@ -32,12 +32,10 @@ jobs:
           ~/.cache/poetry
           ~/.cache/pip
         key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-poetry
+        restore-keys: ${{ runner.os }}-poetry
 
     # Linter ruff の実行
     - uses: chartboost/ruff-action@v1
     - name: Run syntax check
-      run: |
-        ruff --output-format=github .
+      run: poetry run ruff --output-format=github .
       continue-on-error: true
