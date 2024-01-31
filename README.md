@@ -1,6 +1,7 @@
 # プロジェクト内容
 
-[![Python linting with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml)
+[![Python linting with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml/badge.svg?branch=dev&event=pull_request)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml)
+[![CodeQL](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql)
 
 ## 概要
 
