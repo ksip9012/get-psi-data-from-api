@@ -32,38 +32,20 @@ def extract_metrics(
 
 
 def create_value_list(
-        date: str,
-        locale: str,
-        strategy: str,
-        url: str,
+        setting_list: list,
         category: str,
-        performance: float,
-        accessibility: float,
-        best_practices: float,
-        seo: float,
+        result_list: list,
         metrics: dict,
         ) -> list:
     """結果を list にまとめる.
 
     Args:
-        date (str):
-            計測した日付
-        locale (str):
-            計測する国範囲 (日本に固定中)
-        strategy (str):
-            mobile / desktop
-        url (str):
-            計測した url
+        setting_list (list):
+            計測条件をまとめたもの
         category (str):
             thisurl / origin どちらか
-        performance (float):
-            パフォーマンスの結果
-        accessibility (float):
-            アクセシビリティの結果
-        best_practices (float):
-            ベストプラクティスの結果
-        seo (float):
-            SEO の結果
+        result_list (list):
+            計測結果をまとめたもの
         metrics (dict):
             PSI の各数値のまとまったもの
 
@@ -71,8 +53,7 @@ def create_value_list(
         list: 結果をまとめたlist
     """
     values_list = [
-        date, locale, strategy, url, category,
-        int(performance), int(accessibility), int(best_practices), int(seo),
+        setting_list, category, result_list,
     ]
     values_list.extend(
         [value if value is not None else "" for value in metrics.values()],
@@ -121,16 +102,24 @@ def edit_response(
     best_practices = cate_path["best-practices"]["score"] * 100
     seo = cate_path["seo"]["score"] * 100
 
-    thisurl_values_list = create_value_list(
-        today, "ja", strategy, measurement_url, "this url",
-        performance, accessibility, best_practices, seo, thisurl_metrics,
-    )
-    origin_values_list = create_value_list(
-        today, "ja", strategy, measurement_url, "origin",
-        performance, accessibility, best_practices, seo, origin_metrics,
-    )
+    settings_list = [today, "ja", strategy, measurement_url]
+    result_list = [
+        int(performance),
+        int(accessibility),
+        int(best_practices),
+        int(seo),
+    ]
 
-    return pd.DataFrame([thisurl_values_list, origin_values_list])
+    thisurl_values_list = create_value_list(
+        settings_list, "this url", result_list, thisurl_metrics,
+    )
+    thisurl_values_list_flat = flatten_list(thisurl_values_list)
+    origin_values_list = create_value_list(
+        settings_list, "origin", result_list, origin_metrics,
+    )
+    origin_values_list_flat = flatten_list(origin_values_list)
+
+    return pd.DataFrame([thisurl_values_list_flat, origin_values_list_flat])
 
 
 def get_metric_value(
@@ -152,10 +141,28 @@ def get_metric_value(
         dict | None: 取得した項目
     """
     try:
-        return json_data.get(category, {}) \
-                        .get("metrics", {}) \
-                        .get(metric, {}) \
+        return json_data.get(category, {})\
+                        .get("metrics", {})\
+                        .get(metric, {})\
                         .get("percentile", {})
     except Exception:
         logging.exception("Json has no value.")
         return None
+
+
+def flatten_list(values_list: list) -> list:
+    """2次元リストを1次元に変換する.
+
+    Args:
+        values_list (list): 変換前のリスト
+
+    Returns:
+        list: フラット化したリスト
+    """
+    flattened_list = []
+    for item in values_list:
+        if isinstance(item, list):
+            flattened_list.extend(flatten_list(item))
+        else:
+            flattened_list.append(item)
+    return flattened_list
