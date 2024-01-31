@@ -6,16 +6,16 @@ authors = ["ksi1212 <ksiper9012@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "=3.12.1"
-requests = "=2.31.0"
-python-dotenv = "=1.0.0"
-pathlib = "=1.0.1"
-pandas = "=2.1.4"
+python = "3.12.1"
+requests = "2.31.0"
+python-dotenv = "1.0.0"
+pathlib = "1.0.1"
+pandas = "2.1.4"
 # linter
-ruff = "=0.1.9"
+ruff = "0.1.9"
 # test
-pytest = "=7.4.3"
-google-cloud-bigquery = "=3.16.0"
+pytest = "7.4.3"
+google-cloud-bigquery = "3.16.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -25,6 +25,13 @@ build-backend = "poetry.core.masonry.api"
 target-version = "py312"
 exclude = [".venv"]
 select = ["ALL"]
+typing-modules = ["x"]
+src = ["get_psi_data_from_api"]
+ignore = [
+  "INP001",
+  "ANN101",
+  "D107"
+]
 line-length = 79
 indent-width = 4
 pydocstyle.convention = "google"
