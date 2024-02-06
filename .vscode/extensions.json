@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    // python の標準拡張機能
+    "ms-python.python",
+    // python の docstring を自動生成
+    "njpwerner.autodocstring",
+    // Python の linter 兼 formatter
+    "charliermarsh.ruff",
+    // toml ファイル用の linter
+    "tamasfe.even-better-toml",
+    // GitHub の graph 可視化
+    "mhutchie.git-graph",
+    // GitHub actions 用の linter
+    "github.vscode-github-actions"
+  ]
+}
