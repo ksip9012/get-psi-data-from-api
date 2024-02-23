@@ -1,7 +1,24 @@
-# プロジェクト内容
+# PageSpeed Insights API からのデータ取得
+
+## Repository status
 
 [![Python linting with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml/badge.svg?branch=dev&event=pull_request)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml)
 [![CodeQL](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql)
+
+## Dependance
+
+[![mise - version](https://img.shields.io/badge/mise-v2024.2.17-blue.svg)](https://github.com/jdx/mise)
+[![Python - version](https://img.shields.io/badge/Python-v3.12.1-blue.svg)](https://www.python.org/)
+[![Poetry - version](https://img.shields.io/badge/Poetry-v1.7.1-blue.svg)](https://python-poetry.org/)
+
+| PackageName | Version | Python Version |
+| ----------- | ------- | -------------- |
+| [requests](https://requests.readthedocs.io/en/latest/) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v2.31.0-blue.svg)](https://pypi.org/project/requests/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.7/3.8/3.9/3.10/3.11-blue.svg) |
+| [python-dotenv](https://github.com/theskumar/python-dotenv) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v1.0.0-green.svg)](https://pypi.org/project/python-dotenv/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.8/3.9/3.10/3.11/3.12-blue.svg) |
+| [pandas](https://pandas.pydata.org/) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v2.2.0-blue.svg)](https://pypi.org/project/pandas/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.9/3.10/3.11/3.12-blue.svg) |
+| [ruff](https://docs.astral.sh/ruff/) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v0.1.9-orange.svg)](https://pypi.org/project/ruff/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.7/3.8/3.9/3.10/3.11/3.12-blue.svg) |
+| [pytest](https://docs.pytest.org/en/latest/) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v7.4.3-blue.svg)](https://pypi.org/project/pytest/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.8/3.9/3.10/3.11/3.12-blue.svg) |
+| [google-cloud-bigquery](https://github.com/googleapis/python-bigquery) | [![PyPI - Version](https://img.shields.io/badge/PyPI-v3.16.0-blue.svg)](https://pypi.org/project/google-cloud-bigquery/) | ![PyPI - Python Version](https://img.shields.io/badge/Python-3.7/3.8/3.9/3.10/3.11/3.12-blue.svg) |
 
 ## 概要
 
