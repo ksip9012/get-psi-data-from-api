@@ -2,7 +2,7 @@
 
 ## Repository status
 
-[![Python linting with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml/badge.svg?branch=dev&event=pull_request)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/py-linting-with-ruff-on-actions.yml)
+[![Lint with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/lint-with-ruff.yml/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/lint-with-ruff.yml)
 [![CodeQL](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/github-code-scanning/codeql)
 
 ## Dependance
