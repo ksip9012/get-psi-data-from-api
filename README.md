@@ -45,14 +45,6 @@
 - [ ] create_value_list 関数に変数が多すぎるのでそこを改善
     - [ ] クラスを導入して変数をまとめる
 
-## Requirements
-
-- python: 3.12
-- requests: 2.31.0
-- python-dotenv: 1.0.0
-- pathlib: 1.0.1
-- pandas: 2.1.4
-
 ## PSI の API からデータ取得
 
 - GCP のプロジェクトを作って API キーを作らないと高頻度アクセスができない
@@ -60,23 +52,22 @@
 ```フォルダ構成
 get_psi_data_from_api/
 │
-├── .venv/  # poetry で作った仮想環境
+├── .github/
+│   ├── ISSUE_TEMPLATE/        # テンプレートファイルの格納
+│   └── workflows/             # GitHub actions の設定ファイル
 │
-├── .vscode/  # vscode の設定ファイルを入れておく
-│   └── settings.json # vscode の設定ファイル
+├── .venv/                     # poetry で作った仮想環境
 │
-├── data/  # 計測結果の csv ファイルを格納する
+├── .vscode/                   # vscode の設定ファイルを入れておく
+│   └── settings.json         # vscode の設定ファイル
 │
-├── docs/  # ドキュメンテーション用のフォルダ
-│   ├── conf.py
-│   ├── index.rst
-│   └── ...
+├── data/                      # 計測結果の csv ファイルを格納する
 │
-├── env/  # 環境変数等に関するファイルを格納する
-│   ├── .env # 環境変数を入れたファイル
-│   └── measurement_urls.csv # 計測する url を入れたファイル
+├── env/
+│   ├── .env                  # 環境変数を入れたファイル
+│   └── measurement_urls.csv  # 計測する url を入れたファイル
 │
-├── get_psi_data_from_api/  # プロジェクトのコードが含まれるフォルダ
+├── get_psi_data_from_api/     # プロジェクトのコードが含まれるフォルダ
 │   ├── modules
 │   │    ├── __init__.py
 │   │    ├── folder_utils.py
@@ -85,15 +76,15 @@ get_psi_data_from_api/
 │   ├── __init__.py
 │   └── main.py
 │
-├── logs/  # ログファイルの出力先
+├── logs/                      # ログファイルの出力先
 │
-├── tests/  # テスト用のフォルダ
+├── tests/                     # テスト用のフォルダ
 │   ├── __init__.py
 │   └── test_folder_utils.py
 │
-├── README.md  # このドキュメント
-├── .gitignore  # git が無視するファイルやディレクトリを指定
-├── .tool-versions  # rtx の管理ファイル
-├── poetry.lock  # Poetry のパッケージ・バージョン管理
-└── pyproject.toml  # Poetry の設定ファイル
+├── README.md
+├── .gitignore
+├── .tool-versions             # mise の管理ファイル
+├── poetry.lock                # Poetry のパッケージ・バージョン管理
+└── pyproject.toml             # Poetry の設定ファイル
 ```
