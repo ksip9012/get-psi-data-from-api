@@ -34,8 +34,10 @@ jobs:
         key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
         restore-keys: ${{ runner.os }}-poetry
 
-    # Linter ruff の実行
+    # Linter ruff の実行（pyproject.toml で固定している版にそろえる）
     - uses: chartboost/ruff-action@v1
+      with:
+        version: 0.1.9
     - name: Run syntax check
       run: poetry run ruff --output-format=github .
       continue-on-error: true
