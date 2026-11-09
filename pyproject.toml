@@ -2,7 +2,7 @@
 name = "get-psi-data-from-api"
 version = "1.0.0"
 description = ""
-authors = ["ksi1212 <ksiper9012@gmail.com>"]
+authors = ["ksi1212"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
