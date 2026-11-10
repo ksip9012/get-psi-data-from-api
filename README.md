@@ -1,5 +1,7 @@
 # PageSpeed Insights API からのデータ取得
 
+> **このリポジトリは過去の作品で、更新していません（2026-11 にアーカイブしました）。**
+
 ## Repository status
 
 [![Lint with ruff](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/lint-with-ruff.yml/badge.svg)](https://github.com/ksip9012/get-psi-data-from-api/actions/workflows/lint-with-ruff.yml)
